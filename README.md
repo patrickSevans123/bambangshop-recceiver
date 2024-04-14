@@ -91,3 +91,11 @@ Dalam konteks BambangShop receiver, RwLock<> lebih baik digunakan dibanding Mute
 2. In this tutorial, we used lazy_static external library to define Vec and DashMap as a “static” variable. Compared to Java where we can mutate the content of a static variable via a static function, why did not Rust allow us to do so?
 Static variable pada Rust tidak dapat diubah (mutate) untuk alasan keamanan, yaitu mencegah data race pada saat thread mengakses variabel di saat yang bersamaan. Jadi, variabel static pada rust hanya bisa diakses oleh satu thread pada saat yang sama.
 #### Reflection Subscriber-2
+1. Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+Ya, saya telah mengeksplor hal-hal di tutorial seperti src/lib.rs. src/lib.rs berfungsi untuk mengatur berbagai hal, seperti mengkonfigurasi struct AppConfig untuk menentukan link dari aplikasi dan juga mengatur respons dari error. Selain itu ada src/main.rs yang berfungsi untuk menjalankan aplikasi dengan rocket.
+
+2. Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system? </br>
+Penggunaan observer pattern memudahkan kita untuk melakukan plug in banyak subscribers karena apabila kita ingin menambahkan suatu produk yang disubscribe oleh pengguna, kita hanya perlu menambahkan produk itu pada daftar produk  yang di-subscribe oleh pengguna. Hal ini membantu kita untuk membuat sistem yang mudah di-extend (open-closed).
+
+3. Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project). </br>
+Ya, saya sudah mencoba test dan saya merasa fitur itu sangat bermanfaat untuk memastikan response yang kita ekspektasikan sesuai dengan response yang ada. Kita dapat melakukan tes dengan menentukan output yang kita inginkan maupun hanya sekedar menentukan response statusnya saja
